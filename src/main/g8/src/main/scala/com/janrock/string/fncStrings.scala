@@ -18,7 +18,7 @@ object fncStrings {
    */
   def simpleStringFormat(word: String, id: Int): String = {
     val world = "World"
-    f"$word $world $id!"
+    word + " " + world + " " + id.toString + "!"
   }
 
 }

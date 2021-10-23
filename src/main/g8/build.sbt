@@ -51,7 +51,7 @@ enablePlugins(DockerPlugin)
 docker / dockerfile := {
   // The assembly task generates a fat JAR file
   val artifact: File = assembly.value
-  val artifactTargetPath = s"/app/${artifact.name}"
+  val artifactTargetPath = "/app/" + artifact.name
 
   new Dockerfile {
     from("openjdk:11-jre")
@@ -62,7 +62,7 @@ docker / dockerfile := {
 
 docker / imageNames := Seq(
   // Sets the latest tag
-  ImageName(s"${"janrock"}/${name.value}:latest"),
+  ImageName("janrock" + "/" + name.value + ":latest"),
   // Sets a name with a tag that contains the project version
   ImageName(
     namespace = Some("janrock"),
