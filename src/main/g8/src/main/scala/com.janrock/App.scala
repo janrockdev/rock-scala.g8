@@ -1,7 +1,6 @@
 package com.janrock
 
 import com.typesafe.scalalogging.Logger
-import com.janrock.string.fncStrings.{simpleString, simpleStringFormat}
 import com.typesafe.config.ConfigFactory
 
 /** Main object to run all challenges for [[com.janrock]] package.
