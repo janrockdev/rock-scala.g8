@@ -1,6 +1,7 @@
 package com.janrock
 
 import com.typesafe.scalalogging.Logger
+import com.janrock.string.fncStrings.{simpleString, simpleStringFormat}
 import com.typesafe.config.ConfigFactory
 
 /** Main object to run all challenges for [[com.janrock]] package.
@@ -30,11 +31,12 @@ object Main {
   val word: String = ConfigFactory.load().getString("config.word")
 
   /** Main function to run all challenges for [[com.janrock]] package.
-   * @todo Add more challenges.
    */
   def main(args: Array[String]): Unit = {
     logger.debug("Starting application...")
     println(word)
+    println(simpleString("Hello World!"))
+    println(simpleStringFormat("Hello", 2))
     logger.debug("Done!")
   }
 
