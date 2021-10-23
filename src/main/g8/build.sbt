@@ -1,25 +1,30 @@
 import Dependencies._
 
+name := "rock-scala-project"
+
 ThisBuild / scalaVersion := "2.13.6"
 ThisBuild / version := "0.1.0-SNAPSHOT"
 ThisBuild / organization := "com.janrock"
 ThisBuild / organizationName := "janrock"
 
-lazy val root = (project in file("."))
-  .settings(name := "$name$", libraryDependencies += scalaTest % Test)
-
 // deprecation param
-//lazy val root = (project in file("."))
-//  .settings(
-//    scalacOptions := List("-encoding", "utf8", "-Xfatal-warnings", "-deprecation", "-unchecked"),
-//    scalacOptions := {
-//      val old = scalacOptions.value
-//      scalaBinaryVersion.value match {
-//        case "2.12" => old
-//        case _ => old filterNot Set("-Xfatal-warnings", "-deprecation").apply
-//      }
-//    }
-//  )
+lazy val root = (project in file("."))
+  .settings(
+    scalacOptions := List(
+      "-encoding",
+      "utf8",
+      "-Xfatal-warnings",
+      "-deprecation",
+      "-unchecked"
+    ),
+    scalacOptions := {
+      val old = scalacOptions.value
+      scalaBinaryVersion.value match {
+        case "2.12" => old
+        case _      => old filterNot Set("-Xfatal-warnings", "-deprecation").apply
+      }
+    }
+  )
 
 libraryDependencies ++= Seq(
   "org.scalactic" %% "scalactic" % "3.2.9",
